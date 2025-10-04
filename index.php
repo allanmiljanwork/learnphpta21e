@@ -1,37 +1,33 @@
 <?php
 
-var_dump(PHP_INT_MAX); // annab max numbriline intergeri value PHP's
-for($i=0; $i<10; $i++){
-    var_dump($i);
+function sayHello(){
+    var_dump('Hello');
 }
 
-for($i=10; $i>0; $i--){
-    var_dump($i);
+sayHello();
+
+function sayHelloToMe($name='Nameless'){
+    var_dump("Hello $name!");
 }
 
-for($i=1; $i<1_000_000; $i*=2){
-    var_dump($i);
+sayHelloToMe('Allan');
+sayHelloToMe('Miljan');
+sayHelloToMe('Joonas');
+sayHelloToMe();
+
+function sayNameAndAge($name, $age){
+    var_dump("Your name is $name and you are $age years old!");
 }
 
-$current = (int) date("s");
+sayNameAndAge('Allan', 20);
+sayNameAndAge('Miljan', 20);
 
-$i = 10;
-
-while($i<10){
-    var_dump('While');
+function recursion($i){
+    if($i<10){
+        var_dump($i);
+        recursion($i+1);
+    }
 }
 
-do {
-    var_dump('Do While');
-}   while($i<10);
 
-$array = ['apples', 'pears', 'oranges'];
-
-foreach($array as $value):
-    echo $value . " ";
-endforeach;
-
-
-foreach($array as $key => $value) {
-    var_dump($key, $value);
-}
+recursion(0);
